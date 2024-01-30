@@ -112,59 +112,55 @@ function renderGame(size, background) {
   let lastEmptyPosition;
 
   // AUTOMATIC COMPUTER
-  setInterval(() => {
-    let emptyX, emptyY;
+  // setInterval(() => {
+  //   let emptyX, emptyY;
 
-    gameState.forEach((tile) => {
-      if (tile.getAttribute("position") == size ** 2 - 1) {
-        emptyX = Number(tile.getAttribute("x"));
-        emptyY = Number(tile.getAttribute("y"));
-      }
-    });
+  //   gameState.forEach((tile) => {
+  //     if (tile.getAttribute("position") == size ** 2 - 1) {
+  //       emptyX = Number(tile.getAttribute("x"));
+  //       emptyY = Number(tile.getAttribute("y"));
+  //     }
+  //   });
 
-    randomSign = ["x", "y"];
-    randomSymbol = ["+", "-"];
+  //   randomSign = ["x", "y"];
+  //   randomSymbol = ["+", "-"];
 
-    tempX = emptyX;
-    tempY = emptyY;
+  //   tempX = emptyX;
+  //   tempY = emptyY;
 
-    function getRandomTile() {
-      sign = randomSign[Math.floor(Math.random() * randomSign.length)];
-      number = randomSymbol[Math.floor(Math.random() * randomSymbol.length)];
+  //   function getRandomTile() {
+  //     sign = randomSign[Math.floor(Math.random() * randomSign.length)];
+  //     number = randomSymbol[Math.floor(Math.random() * randomSymbol.length)];
 
-      if (sign == "x" && number == "+" && emptyX < 2)
-        return (tempX = emptyX + 1);
-      if (sign == "x" && number == "-" && emptyX > 0)
-        return (tempX = emptyX - 1);
-      if (sign == "y" && number == "+" && emptyY < 2)
-        return (tempY = emptyY + 1);
-      if (sign == "y" && number == "-" && emptyY > 0)
-        return (tempY = emptyY - 1);
+  //     if (sign == "x" && number == "+" && emptyX < 2)
+  //       return (tempX = emptyX + 1);
+  //     if (sign == "x" && number == "-" && emptyX > 0)
+  //       return (tempX = emptyX - 1);
+  //     if (sign == "y" && number == "+" && emptyY < 2)
+  //       return (tempY = emptyY + 1);
+  //     if (sign == "y" && number == "-" && emptyY > 0)
+  //       return (tempY = emptyY - 1);
 
-      getRandomTile();
-    }
+  //     getRandomTile();
+  //   }
 
-    getRandomTile();
-    move();
+  //   getRandomTile();
+  //   move();
 
-    function move() {
-      if (lastEmptyPosition == tempX + tempY * 3) {
-        getRandomTile();
-        move();
-      } else {
-        gameState.forEach((tile) => {
-          if (tile.getAttribute("current") == tempX + tempY * 3) {
-            lastEmptyPosition = emptyX + emptyY * 3;
-            tileToMove = tile;
-            tileToMove.click();
-          }
-        });
-      }
-    }
-
-    // let randomTile = gameState[Math.floor(Math.random() * gameState.length)];
-    // randomTile.click();
-  }, 1);
+  //   function move() {
+  //     if (lastEmptyPosition == tempX + tempY * 3) {
+  //       getRandomTile();
+  //       move();
+  //     } else {
+  //       gameState.forEach((tile) => {
+  //         if (tile.getAttribute("current") == tempX + tempY * 3) {
+  //           lastEmptyPosition = emptyX + emptyY * 3;
+  //           tile.click();
+  //         }
+  //       });
+  //     }
+  //   }
+  // }, 1);
   // AUTOMATIC COMPUTER
 
   gameBoard.addEventListener("click", (event) => {
