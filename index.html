@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliding Puzzle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="landingGameMode" class="landing">
+      <h1>SLIDING PUZZLE</h1>
+
+      <div class="gameMode">
+        <button id="newGame">NEW GAME</button>
+        <button id="setImage">CHOOSE IMAGE</button>
+        <button id="myImage">MY IMAGE...</button>
+      </div>
+
+      <span class="divider">BOARD SIZE</span>
+      <input type="number" id="size" class="button" name="size" min="2" max="25" value="3"/>
+    </div>
+
+    <div id="landingSetImage" class="landing" style="display: none"></div>
+
+    <div id="landingMyImage" class="landing" style="display: none">
+      <label for="image" class="button">CHOOSE YOUR OWN GAME IMAGE..</label>
+      <input type="file" id="image" name="image" accept="image/png, image/jpeg" />
+      <div class="preview"></div>
+    </div>
+
+    <div id="game" style="display: none">
+      <button id="buttonRestart">Restart</button>
+      <div id="game-board"></div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
